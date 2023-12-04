@@ -116,23 +116,24 @@ fun parseSchematic(input: List<String>): Schematic {
 }
 
 fun main() {
-    val input = File("src/main/resources/day_03/input.txt").readLines()
+    val input = File("src/main/resources/day_03/hofer.txt").readLines()
 
     val schematic = parseSchematic(input)
 
     // Level 1
-//    val partNumbers = schematic.findPartNumbers()
-//
-//    println("Parts: ${schematic.parts.count()}")
+    val partNumbers = schematic.findPartNumbers()
+
+    println("Parts: ${schematic.parts.count()}")
 //    println(schematic.parts)
-//
-//    println("Symbols: ${schematic.symbols.count()}")
+
+    println("Symbols: ${schematic.symbols.count()}")
 //    println(schematic.symbols)
-//
-//    println("Sum of part numbers: ${partNumbers.sum()}")
+
+    println("Part count ${partNumbers.count()}")
+    println("Sum of part numbers: ${partNumbers.sum()}")
 
     val gears = schematic.findGears()
     println("Gears: ${gears.count()}")
-    println(gears)
+//    println(gears)
     println("Ratio: ${gears.sumOf { it.getRatio() }}")
 }
