@@ -40,11 +40,11 @@ fun decodeLetterEntry(entry: String): Int {
 
 fun main() {
     // Level 1
-    //val input = File("src/main/resources/day_01/input.txt").readLines()
-    //val result = input.fold( 0) { acc, cur -> acc + decodeDigitEntry(cur) }
+    //val input.txt = File("src/main/resources/day_01/input.txt.txt").readLines()
+    //val result = input.txt.fold( 0) { acc, cur -> acc + decodeDigitEntry(cur) }
 
     // Level 2
-    val input = File("src/main/resources/day_01/input.txt").readLines()
+    val input = File("src/main/resources/day_01/input.txt.txt").readLines()
     val result = input.filter{it != ""}.fold(0) {acc, cur -> acc + decodeLetterEntry(cur)}
 
     println("Sum of all calibration values: $result")

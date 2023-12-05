@@ -65,7 +65,7 @@ data class Game(val id: Int, val reveals: List<Reveal>) {
 }
 
 fun main() {
-    val input = File("src/main/resources/day_02/input.txt").readLines().map { it.trim() }.filter { it != "" };
+    val input = File("src/main/resources/day_02/input.txt.txt").readLines().map { it.trim() }.filter { it != "" };
 
     val games = input.map { HelperElf.fromString(it) }
 
