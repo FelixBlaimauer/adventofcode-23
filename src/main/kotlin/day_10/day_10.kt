@@ -47,7 +47,7 @@ tailrec fun findPipeDistance(current: Vec2, grid: List<List<Pipe?>>, visited: Li
 fun main() {
     var startIdx: Vec2? = null
 
-    val grid = getResourceFile("day_10/example.txt").readLines().mapIndexed { y, line ->
+    val grid = getResourceFile("day_10/input.txt").readLines().mapIndexed { y, line ->
         line.mapIndexed { x, it ->
             if (it == 'S') startIdx = Vec2(x, y)
             Pipe.fromChar(it)
@@ -56,7 +56,7 @@ fun main() {
 
     val start = startIdx ?: throw Exception("No start found")
 
-    val n = start.getSafeRectNeighbors().entries.first { (direction, pos) ->
+    val n = start.getSafeRectNeighbors().entries.first{ (direction, pos) ->
         grid[pos.y][pos.x]?.let {
             grid[start.y][start.x]!!.fits(
                 it,

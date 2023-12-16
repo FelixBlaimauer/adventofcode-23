@@ -1,4 +1,5 @@
 import java.io.File
+import kotlin.math.abs
 
 fun getResourceFile(path: String) = File("src/main/resources/$path")
 
@@ -56,6 +57,8 @@ data class Vec2(val x: Int, val y: Int) {
             return neighbors.distinct()
                 .filter { it != a && it != b && (if (it.y != a.y) true else it.x < a.x || it.x > b.x) }
         }
+
+        fun manhattanDistance(a: Vec2, b: Vec2) = abs(a.x - b.x) + abs(a.y - b.y)
     }
 
     fun add(vec: Vec2) = Companion.add(this, vec)
@@ -67,4 +70,6 @@ data class Vec2(val x: Int, val y: Int) {
     fun getSafeNeighbors() = Companion.getSafeNeighbors(this)
 
     fun getSafeRectNeighbors() = Companion.getSafeRectNeighbors(this)
+
+    fun manhattanDistance(vec: Vec2) = Companion.manhattanDistance(this, vec)
 }
