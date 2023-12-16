@@ -3,7 +3,7 @@ package day_11
 import Vec2
 import getResourceFile
 
-const val EXPANSION_FACTOR = 10
+const val EXPANSION_FACTOR = 1000000
 
 fun expandUniverse(galaxy: List<CharArray>): List<List<Char>> {
     val expanded = mutableListOf<MutableList<Char>>()
@@ -53,7 +53,7 @@ fun markExpansions(galaxy: List<CharArray>): List<List<Char>> {
 fun main() {
     // Level 1
 //    val universe = expandUniverse(getResourceFile("day_11/example.txt").readLines().map { it.toCharArray() })
-    val universe = markExpansions(getResourceFile("day_11/example.txt").readLines().map { it.toCharArray() })
+    val universe = markExpansions(getResourceFile("day_11/input.txt").readLines().map { it.toCharArray() })
 
     val galaxies = mutableListOf<Vec2>()
 
@@ -63,7 +63,7 @@ fun main() {
         }
     }
 
-    var distance = 0
+    var distance: Long = 0
 
     for (i in 0..<galaxies.count()) {
         for (j in i..<galaxies.count()) {
