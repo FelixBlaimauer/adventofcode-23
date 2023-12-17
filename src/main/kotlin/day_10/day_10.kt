@@ -31,7 +31,7 @@ data class Pipe(val ends: Map<RectDirection, Boolean>, val letter: Char) {
         this.ends[direction] == true && pipe.ends[OpposingRectDirection[direction]] == true
 }
 
-tailrec fun findPipeDistance(current: Vec2, grid: List<List<Pipe?>>, visited: List<Vec2>, distance: Int): Int {
+tailrec fun findPipeDistance(current: Vec2, grid: List<List<Pipe?>>, visited: List<Vec2>, distance: Long): Long {
     val neighbor = current.getSafeRectNeighbors()
         .filterValues { it.y < grid.count() && it.x < grid[0].count() }.entries.first { (direction, pos) ->
         grid[pos.y][pos.x]?.let {
