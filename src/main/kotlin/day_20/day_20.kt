@@ -102,10 +102,10 @@ fun main() {
             Module.fromString(identifier) ?: continue
     }
 
-    connections.forEach { (identifier, conList) -> conList.forEach { modules[identifier]?.addConnection(modules[it]!!) } }
+    connections.forEach { (identifier, conList) -> conList.forEach { modules[it]?.let{module -> modules[identifier]?.addConnection(module)}} }
     val broadcaster = modules["broadcaster"]!!
 
-    for (i in 0..<1) {
+    for (i in 0..<BUTTON_PRESSES) {
         broadcaster.receivePulse(Pulse.LOW, source = "button")
         broadcaster.sendPulses()
     }
